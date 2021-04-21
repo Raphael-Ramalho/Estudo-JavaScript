@@ -13,9 +13,27 @@
 
             var scoops = 5;
             while (scoops > 0) {
-                document.write("Another scoop!");
+                document.write("Another scoop!<br>");
+                if (scoops >= 5) {
+                    document.write ("Eat faster, the ice cream is going to melt!<br>");
+                } else if (scoops < 3) {
+                    document.write ("Ice cream is running low!<br>");
+                }
                 scoops = scoops - 1;
             }
+            document.write ("life without ice cream isn't the same!<br><br>")
+     
+            var i = 0;
+            var name = "Joe";
+            while (i < 2) {
+                document.write ("Happy Birthday to you. <br>");
+                i = i + 1;
+            }
+            document.write ("Happy Birthday dear " + name + ",<br>");
+            document.write ("Happy Birthday to you. <br>");
+
+            var message = "Howdy" + " " + "partner";
+            console.log (message)
         </script>
     </head>
     <body>
