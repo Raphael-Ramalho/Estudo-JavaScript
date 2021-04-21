@@ -22,7 +22,7 @@
                 scoops = scoops - 1;
             }
             document.write ("life without ice cream isn't the same!<br><br>")
-     
+            
             var i = 0;
             var name = "Joe";
             while (i < 2) {
@@ -30,10 +30,20 @@
                 i = i + 1;
             }
             document.write ("Happy Birthday dear " + name + ",<br>");
-            document.write ("Happy Birthday to you. <br>");
+            document.write ("Happy Birthday to you. <br><br>");
 
+            //testando o console.log
             var message = "Howdy" + " " + "partner";
             console.log (message)
+
+            //automatizando a canção 99 bottles of beer
+            var bottlesLeft = 99;
+            while (bottlesLeft > 0) {
+                document.write (bottlesLeft + " bottles of beer on the wall, " + bottlesLeft +" bottles of beer.");
+                bottlesLeft = bottlesLeft -1;
+                document.write (" And if one of those bottles should have to fall there would be " + bottlesLeft + " bottles of beer on the wall. <br><br>");
+            }
+
         </script>
     </head>
     <body>
