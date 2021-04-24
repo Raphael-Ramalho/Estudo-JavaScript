@@ -1,3 +1,4 @@
+var randomLoc = Math.floor(Math.random()*5);
 var location1 = randomLoc;
 var location2 = location1 + 1;
 var location3 = location2 + 1;
@@ -21,9 +22,12 @@ while (isSunk == false) {
                 isSunk = true;
                 alert ("You sank my battleship!");
             }
+
         } else {
             alert ("MISS!");
         }
+        
+        randomLoc = Math.floor(Math.random()*5);
     }
 }
 
