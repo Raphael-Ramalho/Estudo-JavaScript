@@ -12,6 +12,37 @@
             console.log("Brewing " + cups + " cups of " + tea);
         }
         makeTea(3,);
+
+        var message; 
+        function bake(degrees){
+
+            if (degrees > 500){
+                message = "I'm not a nuclear reactor!";
+            } else if (degrees < 100){
+                message = "I'm not a refrigerator!";
+            } else {
+                message = "That's a very comfortable temperature for me.";
+ 
+            }
+    
+            console.log(message);
+        }
+        var status = bake(350);
+
+        bake(350);
+        bake(100);
+        bake(50);
+        bake(600);
+
+        var age = 7;
+        function addOne(x){
+            x=x+1;
+            age=x;
+            console.log(age);
+        }
+        addOne(age);
+        addOne(age);
+ 
     </script>
 </body>
 </html>
