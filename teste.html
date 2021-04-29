@@ -8,10 +8,10 @@
 </head>
 <body>
     <script>
-        function makeTea(cups,tea){
-            console.log("Brewing " + cups + " cups of " + tea);
-        }
-        makeTea(3,);
+//        function makeTea(cups,tea){
+//            console.log("Brewing " + cups + " cups of " + tea);
+//        }
+//        makeTea(3,);
 
         var message; 
         function bake(degrees){
@@ -24,24 +24,11 @@
                 message = "That's a very comfortable temperature for me.";
  
             }
-    
-            console.log(message);
+            return message;
         }
-        var status = bake(350);
-
-        bake(350);
-        bake(100);
-        bake(50);
-        bake(600);
-
-        var age = 7;
-        function addOne(x){
-            x=x+1;
-            age=x;
-            console.log(age);
-        }
-        addOne(age);
-        addOne(age);
+        var status = bake(prompt("Enter a temperature in degrees:"));
+        
+        console.log(status);
  
     </script>
 </body>

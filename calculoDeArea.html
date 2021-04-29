@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo de área</title>
+</head>
+<body>
+    <script>
+        
+        function calculateArea(r){
+            if(r < 0){
+                r = 0;
+            } else {
+            return (Math.PI * r * r);
+            }
+        }
+
+        var radius;
+        radius = prompt("type radius:");
+
+        var area;
+        area = calculateArea(radius);
+
+        alert("The area is: " + area);
+
+    </script>
+</body>
+</html>
