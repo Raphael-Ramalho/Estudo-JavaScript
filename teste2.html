@@ -26,19 +26,19 @@
         add(number,anotherNumber);
         multiply(prompt("Enter a number:"),sum);
 
-        var age = 7;
-        var anosMult;
+
+        //testando o statement return
+        var age = 8;
+        var seculo = 20;
 
         function addOne (x){
-            x=x+1;
-            age=x;
+            return x+1;
         }
 
-        function multilply(x){
-            anosMult = age * x;
-        }
-
-        addOne(age)
+        age = addOne(age);
+        seculo = addOne(seculo);
+        document.write(age + "<br>");
+        document.write(seculo);
     </script>
 </body>
 </html>
