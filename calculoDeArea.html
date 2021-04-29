@@ -10,10 +10,10 @@
     <script>
         
         function calculateArea(r){
-            if(r < 0){
-                r = 0;
+            if(r <= 0){
+                return 0;
             } else {
-            return (Math.PI * r * r);
+                return (Math.PI * r * r);
             }
         }
 
