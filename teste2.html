@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Função Return</title>
+</head>
+<body>
+    <script>
+        var number = 4;
+        var anotherNumber = 3;
+        var sum;
+
+        function add(n1,n2){
+            //forma errada:
+            sum = n1 + n2;
+            //forma correta:
+            //return (n1+n2);            
+        }
+
+        function multiply(n1,n2){
+            console.log(n1 * n2);
+        }
+
+        add(number,anotherNumber);
+        multiply(prompt("Enter a number:"),sum);
+
+        var age = 7;
+        var anosMult;
+
+        function addOne (x){
+            x=x+1;
+            age=x;
+        }
+
+        function multilply(x){
+            anosMult = age * x;
+        }
+
+        addOne(age)
+    </script>
+</body>
+</html>
