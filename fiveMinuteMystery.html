@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+    <script>
+        //the case of the attempted robbery not worth investigating
+        var balance = 10500;
+        var cameraOn = true;
+
+        function steal(balance, amount){
+            cameraOn = false;
+            if(amount < balance) {
+                balance = balance - amount;
+            }
+            return amount;//apenas o amount está saindo da função. Dessa forma, a variavel global balance é alterada
+            cameraOn = true;
+        }
+        
+        var amount = steal(balance, 1250);
+        alert("Criminal: you stole " + amount + "!");
+        alert(balance)
+
+    </script>
+    
+</body>
+</html>
