@@ -10,10 +10,11 @@
     <script>
         var products = ["Choo Choo Chocolate", "Icy Mint", "Cake Batter", "Bubblegum"];
         var hasBubbleGum = [false, false, false, true];
-        var i=0;
-        while (i < hasBubbleGum.lenght) {
+
+        var i = 0;
+        while (i < hasBubbleGum.length) {
             if (hasBubbleGum[i]) {
-                document.write (products[i] + "contains bubble gum");
+                console.log(products[i] + " contains bubble gum");
             }
             i=i+1;
         }
