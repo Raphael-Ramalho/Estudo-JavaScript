@@ -10,34 +10,45 @@
     <script>
         var scores = [60, 50, 60, 58, 54, 54, 58, 50, 52, 54, 48, 69, 34, 55, 51, 52, 44, 51, 69, 64, 66, 55, 52, 61, 46, 31, 57, 52, 44, 18, 41, 53, 55, 61, 51, 44];
 
-        var output;
-        var maxScore = 0;
-        var highSolutions = [];
+        
+        function printAndGetHighScores(scores){
+            var output;
+            var maxScore = 0; 
 
-
-        for (var i=0; i < scores.length; i++){
-            //Solution list
-            output = "Bubble solution #" + i + " score: " + scores[i] + "<br>";  
-             
-            document.write(output);       
- 
-            //Highest bubble score
-            if (maxScore < scores[i]) {
-                 maxScore = scores[i]; 
-            } 
-        }
-
-        for (var j=0; j < scores.length; j++){
-            if (maxScore == scores[j]){
-                highSolutions.push(" #" + j);
+            for (var i=0; i < scores.length; i++){
+                //Solution list
+                output = "Bubble solution #" + i + " score: " + scores[i] + "<br>";  
+                
+                document.write(output);       
+    
+                //Highest bubble score
+                if (maxScore < scores[i]) {
+                    maxScore = scores[i]; 
+                } 
             }
+            return maxScore;
         }
-      
+       
+
+        function getBestResults(maxScores, scores){
+            var highSolutions =[];
+            for (var j=0; j < scores.length; j++){
+                if (maxScore == scores[j]){
+                    highSolutions.push(" #" + j);
+                }
+            }
+            return highSolutions;
+        }
+
+        var maxScore = printAndGetHighScores(scores);
+
         //Number of solutions evaluated
-        document.write("<br>" + "Bubbles tests: " + i + "<br>");
+        document.write("<br>" + "Bubbles tests: " + scores.length + "<br>");
 
         //Highest bubble score
         document.write("Highest bubble score: " + maxScore + "<br>");
+
+        var highSolutions = getBestResults(maxScore, scores)
 
         //Solution with highest score
         document.write("Solutions with highest score: " + highSolutions);
