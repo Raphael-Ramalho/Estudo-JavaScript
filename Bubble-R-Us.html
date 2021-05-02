@@ -15,7 +15,7 @@
         var highSolutions = [];
 
 
-        for (var i=0; i < scores.length; i=i+1){
+        for (var i=0; i < scores.length; i++){
             //Solution list
             output = "Bubble solution #" + i + " score: " + scores[i] + "<br>";  
              
@@ -27,11 +27,9 @@
             } 
         }
 
-        var k=0;
-        for (var j=0; j < scores.length; j=j+1){
+        for (var j=0; j < scores.length; j++){
             if (maxScore == scores[j]){
-                highSolutions[k] = " #" + j;
-                k=k+1;
+                highSolutions.push(" #" + j);
             }
         }
       
