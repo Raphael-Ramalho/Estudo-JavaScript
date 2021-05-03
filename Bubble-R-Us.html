@@ -42,6 +42,18 @@
             return highSolutions;
         }
 
+        function getCheapestSolution(cost, highSolutions){
+            var cheapestSolution = highSolutions[0];
+            for (var i=0; i < highSolutions.length - 1; i++){
+                if (cost[highSolutions[i + 1]] < cost[highSolutions[i]]){
+                    cheapestSolution = highSolutions[i + 1];
+                }
+            }
+            return cheapestSolution;
+        }
+
+
+
         var maxScore = printAndGetHighScores(scores);
 
         //Number of solutions evaluated
@@ -55,12 +67,16 @@
         //Solution with highest score
         document.write("Solutions with highest score: " + highSolutions);
 
-        var lowestCost = [];
-        for (var i=0; i < highSolutions.length; i++){
-            lowestCost.push = cost[highSolutions[i]];  
-        }
+        var cheapestSolution = getCheapestSolution(cost, highSolutions);
+
+        var bestPrice = cost[getCheapestSolution(cost, highSolutions)];
+
+        console.log(cheapestSolution);
+        console.log(bestPrice);
+
         
-        console.log(lowestCost);
+
+        
         
 
 
