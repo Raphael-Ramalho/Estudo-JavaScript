@@ -10,28 +10,35 @@
     <script>
         //carro construido em 1960 ou antes
         //com 10000 miles ou menos
-        var fiat = {
-            mileage: 9000,
-            year: 2000
-        }
 
-        var mercedes ={
-            mileage: 9000,
-            year: 1950
-        }
+        var taxi ={
+            make:"webville motors",
+            model: "taxi",
+            year: 1955,
+            color: "yellow",
+            passengers: 4,
+            convertible:false,
+            mileage: 281341
+        };
 
         function prequal (car){
             if (car.mileage > 10000){
                 return false;
             } else if (car.year > 1960){
                 return false;
-            } else {
-                return true;
-            }
+            } 
+            return true;
         }
 
-        console.log(prequal (fiat));
-        console.log(prequal (mercedes));
+        var worthALook = prequal(taxi);
+
+        if (worthALook){
+            console.log("You gotta check out this " + taxi.make + " " + taxi.model);
+        } else {
+            console.log("You should really pass on the " + taxi.make + " " + taxi.model);
+        }
+
+    
 
     </script>
 </body>
