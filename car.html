@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //carro construido em 1960 ou antes
+        //com 10000 miles ou menos
+        var fiat = {
+            mileage: 9000,
+            year: 2000
+        }
+
+        var mercedes ={
+            mileage: 9000,
+            year: 1950
+        }
+
+        function prequal (car){
+            if (car.mileage > 10000){
+                return false;
+            } else if (car.year > 1960){
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        console.log(prequal (fiat));
+        console.log(prequal (mercedes));
+
+    </script>
+</body>
+</html>
