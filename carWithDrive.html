@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Car with drive</title>
 </head>
 <body>
     <script>
@@ -16,12 +16,29 @@
             passengers: 2,
             convertible: false,
             mileage: 88000,
+            started: false,
+
+            start: function(){
+                this.started = true;
+            },
+
+            stop: function(){
+                this.started = false;
+            },
+
             drive: function(){
-                console.log("Zoom zoom!");
+                if(this.started){
+                    console.log("zoom zoom!");
+                } else {
+                    console.log("You need to start the engine first.");
+                }
             }
         }
 
         fiat.drive();
+        fiat.start();
+        fiat.drive();
+        fiat.stop();
     </script>
 </body>
 </html>
