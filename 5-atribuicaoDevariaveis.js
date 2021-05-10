@@ -1,0 +1,1 @@
+console.log("Trabalhandocom atribuição de variáveis");
