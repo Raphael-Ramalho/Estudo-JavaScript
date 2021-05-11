@@ -8,8 +8,8 @@ const listaDeDestinos = new Array(
 
 const idadeComprador = 18;
 const estaAcompanhada = false;
-let temPassagemDisponivel = false;
-const destino = "Rio de Janeiro";
+let destinoExiste = false;
+const destino = "Salvador";
 
 console.log(`\n Destinos possíveis:`);
 console.log(listaDeDestinos);
@@ -18,19 +18,17 @@ console.log(`Destino escolhido: ${destino}`)
 if (idadeComprador >= 18 || estaAcompanhada) {
     for(i=0; i<listaDeDestinos.length; i++){
         if(destino == listaDeDestinos[i]){
-            temPassagemDisponivel =true;
+            destinoExiste =true;
             listaDeDestinos.splice(i, 1);
             console.log(`Boa viagem!`);
+            break;
         }
     }
-    if(!temPassagemDisponivel){
-        console.log("Passagens esgotadas para essa cidade");
-    }
+    console.log(`Destino existe: ${destinoExiste}`)
     
 
 } else {
     console.log(`Comprador não é maior de idade e não posso vender.`);
-    temPassagemDisponivel =false;
 }
 
 console.log(listaDeDestinos);
