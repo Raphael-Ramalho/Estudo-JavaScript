@@ -1,9 +1,12 @@
 export class ContaCorrente{
     agencia;
-    saldo;
+    cliente;
+
+    _saldo = 0;
+
     sacar(valor){
-        if(this.saldo >= valor){
-            this.saldo = this.saldo - valor;
+        if(this._saldo >= valor){
+            this._saldo = this._saldo - valor;
             return valor;
         }
     };
@@ -11,6 +14,6 @@ export class ContaCorrente{
         if(valor < 0){
             return;
         }
-        this.saldo = this.saldo + valor;
+        this._saldo = this._saldo + valor;
     }
 }
