@@ -1,15 +1,18 @@
 let valor = 200;
 class Usuario{
-    cidade;
-    teste(){
-        this.cidade="São Paulo"
-        let teste2 = valor;
-        return teste2
+    cidade = "Niteroi";
+    teste(x,civil){
+        civil.cidade="São Paulo";
+        x = 20;
+        return x
     }
 }
 
-const pessoa = new Usuario();
+const civil1 = new Usuario();
+const civil2 = new Usuario();
 
-pessoa.teste();
-console.log(pessoa);
-console.log(pessoa.teste());
+const teste2 = civil1.teste(valor,civil2);
+console.log(civil1);
+console.log(civil2);
+console.log(valor);
+console.log(teste2);
