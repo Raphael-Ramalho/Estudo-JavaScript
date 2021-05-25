@@ -9,3 +9,4 @@ const idadeSomada = idade + 2;
 console.log(idadeSomada);
 console.log(idadeSomada/2);
 
+document.querySelector("<html>")
