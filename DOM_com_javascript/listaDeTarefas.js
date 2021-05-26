@@ -13,10 +13,11 @@ const criarTarefa = (evento) => {
 
     lista.appendChild(tarefa);
 
-    
+    //minha tentativa de resolução
     const texto = document.querySelector(".task");
     const elemento = document.createElement(`<p class = "content">${valor}</p>`);
     texto.appendChild(elemento);
+    //
 
     input.value = " ";
 }
