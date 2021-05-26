@@ -6,11 +6,13 @@ const criarTarefa = (evento) => {
     const valor = input.value;
 
     const tarefa = document.createElement("li");
-    const conteudo = `<p class = "content">${valor}</p>`
+    tarefa.classList.add("task");
+    const conteudo = `<p class = "content">${valor}</p>`;
 
     tarefa.innerHTML = conteudo;
 
     lista.appendChild(tarefa);
+
     input.value = " ";
 }
 
