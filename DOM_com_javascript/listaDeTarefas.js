@@ -1,4 +1,5 @@
-const criarTarefa = (evento) => {
+(() => {
+    const criarTarefa = (evento) => {
     evento.preventDefault();
 
     const lista = document.querySelector("[data-list]");
@@ -25,7 +26,7 @@ const BotaoConclui = () => {
 
     botaoConclui.classList.add("check-button");
     botaoConclui.innerText = "concluir";
-    botaoConclui.addEventListener("click", concluirTarefa)
+    botaoConclui.addEventListener("click", concluirTarefa);
 
     return botaoConclui;
 }
@@ -36,5 +37,5 @@ const concluirTarefa = (evento) => {
     const tarefaCompleta = botaoConclui.parentElement;
 
     tarefaCompleta.classList.toggle("done");
-}
+}})()
 
