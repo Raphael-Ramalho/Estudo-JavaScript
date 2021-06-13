@@ -8,5 +8,10 @@ export class ContaCorrente extends Conta{
         super(0, cliente, agencia)
         ContaCorrente.numeroDeContas++; 
     }
+
+    teste(){
+        super.teste();
+        console.log("teste na classe conta corrente")
+    }
 }
 
