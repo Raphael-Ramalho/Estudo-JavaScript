@@ -1,21 +1,19 @@
-const button = document.querySelector("[data-button]")
-const body = document.querySelector("[data-body]")
+const button = document.querySelector("[data-button]");
+const body = document.querySelector("[data-body]");
 
 
 let color = () => {
 
-    //let numAleatorio = 256 * Math.random();
+    let conjunto = [];
 
-    const corRed = Math.floor(256 * Math.random());
-    const corGreen = Math.floor(256 * Math.random());
-    const corBlue = Math.floor(256 * Math.random());
-    console.log(corRed);
-    console.log(corGreen);
-    console.log(corBlue);
+    for (i=0; i <= 2; i++){
+        let numAleatorio = Math.floor(256 * Math.random());
+        conjunto[i] = numAleatorio;
+    }
 
-    body.style.background = `rgb(${corRed},${corGreen},${corBlue})`;
+    body.style.background = `rgb(${conjunto})`;
+
 }
 
 
-
-button.addEventListener("click", color)
+button.addEventListener("click", color);
