@@ -1,0 +1,13 @@
+div{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+button{
+    border-radius: 8px;
+    margin: 10px;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
