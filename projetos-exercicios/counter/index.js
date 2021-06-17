@@ -32,11 +32,11 @@ function printFunction(number) {
 
 function backgroundColor(number){
     if (number == 0) {
-        document.body.style.backgroundColor = "white";
+        resultDisplay.style.color = "black";
     } else if (number < 0) {
-        document.body.style.backgroundColor = "red";
+        resultDisplay.style.color = "red";
     } else {
-        document.body.style.backgroundColor = "green";
+        resultDisplay.style.color = "rgb(0, 120, 0)";
     }
 }
 
