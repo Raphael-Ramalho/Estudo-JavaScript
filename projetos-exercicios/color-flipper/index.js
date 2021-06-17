@@ -1,5 +1,5 @@
 const button = document.querySelector("[data-button]");
-const body = document.querySelector("[data-body]");
+
 
 
 let color = () => {
@@ -11,7 +11,7 @@ let color = () => {
         conjunto[i] = numAleatorio;
     }
 
-    body.style.background = `rgb(${conjunto})`;
+    document.body.style.backgroundColor = `rgb(${conjunto})`;
 
 }
 
