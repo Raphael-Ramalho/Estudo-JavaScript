@@ -13,12 +13,18 @@ const handleNovoItem = (evento) => {
 
     const dataFormatada = data.format("DD/MM/YYYY")
 
-    lista.appendChild(tarefa);
+    const dados ={
+        valor,
+        dataFormatada
+    }
+
+    const criaTarefa = criarTarefa(dados)
+
+    lista.appendChild(criaTarefa);
     input.value = " ";
 }
 
-const criarTarefa = (evento) => {
-    evento.preventDefault();
+const criarTarefa = ({valor, dataFormatada}) => {
 
     const tarefa = document.createElement("li");
     tarefa.classList.add("task");
@@ -28,8 +34,10 @@ const criarTarefa = (evento) => {
 
     tarefa.appendChild(BotaoConclui());
     tarefa.appendChild(BotaoDeleta());
+
+    return tarefa
 }
 
 const novaTarefa = document.querySelector("[data-form-button]");
 
-novaTarefa.addEventListener("click", criarTarefa);
+novaTarefa.addEventListener("click", handleNovoItem);
