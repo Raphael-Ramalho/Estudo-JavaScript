@@ -6,5 +6,5 @@ http.send()
 
 http.onload = () => {
     const data = http.response
-    console.log(object)
+    console.log(data)
 }
