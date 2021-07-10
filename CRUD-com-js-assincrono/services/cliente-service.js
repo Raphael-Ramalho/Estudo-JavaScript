@@ -16,25 +16,16 @@ const criaNovaLinha = (nome, email) => {
 
 const tabela = document.querySelector("[data-tabela]")
 
+//bloco de coneção com API
 const listaClientes = () => {
-    const promise = new Promise((resolve, reject) => {
-        const http = new XMLHttpRequest()
-
-        http.open("GET", "http://localhost:3000/profile")
-        
-        http.onload = () => {
-            if(http.status >= 400){
-                reject(JSON.parse(http.response))
-            }else{
-                resolve(JSON.parse(http.response))
-            }
-        }
-        http.send()
+    return fetch("http://localhost:3000/profile")//realiza uma conexão com o servidor que retorna uma resposta. ela faz o GET, buscando os dados no servidor, retorna uma promisse
+    //quando a resposta, promisse chega, esse bloco é executado
+    .then(resposta =>{
+        return resposta.json()//resposta é um texto e precisamos transforma-lo em json
     })
-    console.log(promise)
-    return promise
 }
 
+//Execução da função listaClientes
 listaClientes()
 .then(data => {
     data.forEach(elemento => {
