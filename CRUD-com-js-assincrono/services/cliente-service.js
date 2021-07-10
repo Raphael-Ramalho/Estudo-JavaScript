@@ -2,8 +2,8 @@
 
 //bloco de coneção com API
 const listaClientes = () => {
-    return fetch("http://localhost:3000/profile")//realiza uma conexão com o servidor que retorna uma resposta. ela faz o GET, buscando os dados no servidor, retorna uma promisse
-    //quando a resposta, promisse chega, esse bloco é executado
+    return fetch("http://localhost:3000/profile")//realiza uma conexão com o servidor que retorna uma resposta. ela faz o GET, buscando os dados no servidor, retorna uma promisse. o nome "profile" do domínio é referente ao nome presente no arquivo db.json. o nome do arquivo em si n parede ser relevante para o comportamento da aplicação, assim como o arquivo package-lock.json
+    //quando a resposta, promisse chega, esse bloco é executado. a conexão entre a aplicação e o arquivo db.json foi feita pelo comando do terminal npx json-server --watch db.json. o nome db.json é oriundo da documentação presente no json-server em https://www.npmjs.com/package/json-server
     .then(resposta =>{
         return resposta.json()//resposta é um texto e precisamos transforma-lo em json
     })
