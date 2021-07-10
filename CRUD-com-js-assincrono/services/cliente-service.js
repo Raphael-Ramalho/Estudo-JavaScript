@@ -9,4 +9,18 @@ const listaClientes = () => {
     })
 }
 
+const criaCliente = () => {
+    return fetch("http://localhost:3000/profile",{
+        method:"POST", //adiconando esse metodo, o comportamento padrão GET é substituido pelo POST, permitindo o armazenamento de determinado dado no servidor
+        headers:{//assim como no html, o head é a parte de confinuração, enquanto que o conteudo se localiza no body
+            "Content-Type":"aplication/json"
+        },
+        body: JSON.stringify({// os dados armazenados no servidor precisar ser transformados em string
+            nome, email
+        })
+    })
+}
 
+export const clienteService = {
+    listaClientes
+}
