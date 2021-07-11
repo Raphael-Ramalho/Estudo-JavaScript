@@ -38,10 +38,27 @@ const detalhaCliente = (id) =>{
     })
 }
 
+const atualizaCliente = (id, nome, email) => {
+    return fetch(`http://localhost:3000/profile/${id}`, {
+        method: "PUT", 
+        headers:{
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+            nome: nome, 
+            email: email
+        })
+    })
+    .then(resposta => {//o .then é uma forma de trabalhar com a resposta emitida pelo servidor
+        return resposta.json()// está transformando a resposta em um objeto JSON
+    })
+}
+
 export const clienteService = {
     //criar esse objeto é uma forma de não precisar exportar multiplas variaveis/funções. basta exportar o objeto, chamando suas propriedades nos demais arquivos. EX: listaCliente -> clienteService.listaCliente
     listaClientes,
     criaCliente,
     removeCliente,
-    detalhaCliente
+    detalhaCliente,
+    atualizaCliente
 }
