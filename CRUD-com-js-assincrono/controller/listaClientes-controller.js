@@ -1,6 +1,6 @@
 import { clienteService } from "../services/cliente-service.js"
 
-const criaNovaLinha = (nome, email) => {
+const criaNovaLinha = (nome, email, id) => {
     const linhaNovoCliente = document.createElement('tr')
     const conteudo = `
     <td class="td" data-td>${nome}</td>
@@ -13,15 +13,28 @@ const criaNovaLinha = (nome, email) => {
                 </td>
                 `
     linhaNovoCliente.innerHTML = conteudo
+    linhaNovoCliente.dataset.id = id
     return linhaNovoCliente
 }
 
 const tabela = document.querySelector("[data-tabela]")
 
+tabela.addEventListener("click", (evento)=>{
+    let ehbotaoDeletar = evento.target.className === "botao-simples botao-simples--excluir" //identifica o elemento dentro do target que possua a classe especificada. O === é um condicional q vai gerar um True ou um False
+    if(ehbotaoDeletar){
+        const linhaCliente = evento.target.closest("[data-id]")//essa linha está especificando a tr pai do target
+        let id = linhaCliente.dataset.id
+        clienteService.removeCliente(id)
+        .then(()=>{
+            linhaCliente.remove()//remove o nó linhaCliente
+        })
+    }
+})
+
 //Execução da função listaClientes
 clienteService.listaClientes()
 .then(data => {
     data.forEach(elemento => {
-        tabela.appendChild(criaNovaLinha(elemento.nome, elemento.email))
+        tabela.appendChild(criaNovaLinha(elemento.nome, elemento.email, elemento.id))
     })
 })
