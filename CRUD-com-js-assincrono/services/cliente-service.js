@@ -1,16 +1,18 @@
 
 
 //bloco de coneção com API
-const listaClientes = () => {
-    return fetch("http://localhost:3000/profile")//realiza uma conexão com o servidor que retorna uma resposta. ela faz o GET, buscando os dados no servidor, retorna uma promisse. o nome "profile" do domínio é referente ao nome presente no arquivo db.json. o nome do arquivo em si n parede ser relevante para o comportamento da aplicação, assim como o arquivo package-lock.json
-    //quando a resposta, promisse chega, esse bloco é executado. a conexão entre a aplicação e o arquivo db.json foi feita pelo comando do terminal npx json-server --watch db.json. o nome db.json é oriundo da documentação presente no json-server em https://www.npmjs.com/package/json-server
-    .then(resposta =>{
-        return resposta.json()//resposta é um texto e precisamos transforma-lo em json
-    })
+const listaClientes = async () => {
+    const resposta = await fetch("http://localhost:3000/profile") //realiza uma conexão com o servidor que retorna uma resposta. ela faz o GET, buscando os dados no servidor, retorna uma promisse. o nome "profile" do domínio é referente ao nome presente no arquivo db.json. o nome do arquivo em si n parede ser relevante para o comportamento da aplicação, assim como o arquivo package-lock.json
+        
+    if (resposta.ok) { //bloco acessado se a resposta do servidor tiver o código ok (código 200)
+        return resposta.json() //resposta é um texto e precisamos transforma-lo em json
+    }
+    throw new Error("Não foi possível listar os clientes") //linha acessada se a resposta do servidor não for ok. Nesse caso, o errodescrito nessa linha será escrito no console.log
 }
 
-const criaCliente = (nome, email) => {
-    return fetch("http://localhost:3000/profile",{
+
+const criaCliente = async (nome, email) => {
+    const resposta = await fetch("http://localhost:3000/profile",{
         method:"POST", //adiconando esse metodo, o comportamento padrão GET é substituido pelo POST, permitindo o armazenamento de determinado dado no servidor
         headers:{//assim como no html, o head é a parte de confinuração, enquanto que o conteudo se localiza no body
             "Content-Type":"application/json"
@@ -20,26 +22,32 @@ const criaCliente = (nome, email) => {
             email: email
         })
     })
-    .then(resposta => {
+    if (resposta.ok){
         return resposta.body
-    })
+    }
+    throw new Error ("Não foi possível criar um cliente")
 }
 
-const removeCliente = (id) => { // a remoção dos itens do banco de dados db.json está sendo feita pelo id armazenado
-    return fetch(`http://localhost:3000/profile/${id}`,{ // esse é o caminho até o item a ser removido
-        method: "DELETE"
+
+const removeCliente = async (id) => { // a remoção dos itens do banco de dados db.json está sendo feita pelo id armazenado
+    const resposta = await fetch(`http://localhost:3000/profile/${id}`,{ // esse é o caminho até o item a ser removido
+    method: "DELETE"
     })
+    if(!resposta.ok){
+        throw new Error ("Não foi possível remover um cliente")
+    }
 }
 
-const detalhaCliente = (id) =>{
-    return fetch(`http://localhost:3000/profile/${id}`)
-    .then(resposta =>{
+const detalhaCliente = async (id) =>{
+    const resposta = await fetch(`http://localhost:3000/profile/${id}`)
+    if(resposta.ok){
         return resposta.json()
-    })
+    }
+    throw new Error ("Não foi possível detalhar o cliente")  
 }
 
-const atualizaCliente = (id, nome, email) => {
-    return fetch(`http://localhost:3000/profile/${id}`, {
+const atualizaCliente = async (id, nome, email) => {
+    const resposta = await fetch(`http://localhost:3000/profile/${id}`, {
         method: "PUT", 
         headers:{
             "Content-type": "application/json"
@@ -49,9 +57,12 @@ const atualizaCliente = (id, nome, email) => {
             email: email
         })
     })
-    .then(resposta => {//o .then é uma forma de trabalhar com a resposta emitida pelo servidor
+//o .then é uma forma de trabalhar com a resposta emitida pelo servidor
+    if(resposta.ok){
         return resposta.json()// está transformando a resposta em um objeto JSON
-    })
+    }
+    throw new Error ("Não foi possível atualizar o cliente")
+
 }
 
 export const clienteService = {
