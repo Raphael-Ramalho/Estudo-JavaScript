@@ -31,9 +31,17 @@ const removeCliente = (id) => { // a remoção dos itens do banco de dados db.js
     })
 }
 
+const detalhaCliente = (id) =>{
+    return fetch(`http://localhost:3000/profile/${id}`)
+    .then(resposta =>{
+        return resposta.json()
+    })
+}
+
 export const clienteService = {
     //criar esse objeto é uma forma de não precisar exportar multiplas variaveis/funções. basta exportar o objeto, chamando suas propriedades nos demais arquivos. EX: listaCliente -> clienteService.listaCliente
     listaClientes,
     criaCliente,
-    removeCliente
+    removeCliente,
+    detalhaCliente
 }
