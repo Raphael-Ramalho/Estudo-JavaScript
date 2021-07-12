@@ -14,7 +14,7 @@ const listaClientes = async () => {
 const criaCliente = async (nome, email) => {
     const resposta = await fetch("http://localhost:3000/profile",{
         method:"POST", //adiconando esse metodo, o comportamento padrão GET é substituido pelo POST, permitindo o armazenamento de determinado dado no servidor
-        headers:{//assim como no html, o head é a parte de confinuração, enquanto que o conteudo se localiza no body
+        headers:{//assim como no html, o head é a parte de configuração, enquanto que o conteudo se localiza no body
             "Content-Type":"application/json"
         },
         body: JSON.stringify({// os dados armazenados no servidor precisar ser transformados em string
@@ -22,10 +22,9 @@ const criaCliente = async (nome, email) => {
             email: email
         })
     })
-    if (resposta.ok){
-        return resposta.body
+    if (!resposta.ok){
+        throw new Error ("Não foi possível criar um cliente")
     }
-    throw new Error ("Não foi possível criar um cliente")
 }
 
 
@@ -57,7 +56,6 @@ const atualizaCliente = async (id, nome, email) => {
             email: email
         })
     })
-//o .then é uma forma de trabalhar com a resposta emitida pelo servidor
     if(resposta.ok){
         return resposta.json()// está transformando a resposta em um objeto JSON
     }
