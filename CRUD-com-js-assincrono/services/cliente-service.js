@@ -2,7 +2,7 @@
 
 //bloco de coneção com API
 const listaClientes = async () => {
-    const resposta = await fetch("http://localhost:3000/profile") //realiza uma conexão com o servidor que retorna uma resposta. ela faz o GET, buscando os dados no servidor, retorna uma promisse. o nome "profile" do domínio é referente ao nome presente no arquivo db.json. o nome do arquivo em si n parede ser relevante para o comportamento da aplicação, assim como o arquivo package-lock.json
+    const resposta = await fetch("http://localhost:3000/profile") //realiza uma conexão com o servidor que retorna uma resposta. ela faz o GET, buscando os dados no servidor, retorna uma promisse. o nome "profile" do domínio é referente ao nome presente no arquivo db.json. o nome do arquivo em si n parede ser relevante para o comportamento da aplicação, assim como o arquivo package-lock.json. comando para execução: npx json-server --watch db.json
         
     if (resposta.ok) { //bloco acessado se a resposta do servidor tiver o código ok (código 200)
         return resposta.json() //resposta é um texto e precisamos transforma-lo em json
