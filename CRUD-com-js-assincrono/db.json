@@ -6,11 +6,6 @@
       "id": 1
     },
     {
-      "nome": "Ramalho",
-      "email": "Ramalho@gmail.com",
-      "id": 3
-    },
-    {
       "nome": "rodrigo",
       "email": "rodrigo@gmail.com",
       "id": 4
@@ -21,19 +16,14 @@
       "id": 5
     },
     {
-      "nome": "antonio",
-      "email": "antonio@gmail.com",
-      "id": 6
-    },
-    {
       "nome": "Raphael de Souza Ramalho",
       "email": "opa@gmail.com",
       "id": 7
     },
     {
-      "nome": "opa",
-      "email": "opa@gmail.com",
-      "id": 8
+      "nome": "augusto",
+      "email": "augusto1@gmail.com",
+      "id": 9
     }
   ]
 }

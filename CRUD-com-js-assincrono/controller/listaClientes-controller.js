@@ -42,7 +42,7 @@ const render = async () => {//quando uma função assíncrona (async) é chamada
             tabela.appendChild(criaNovaLinha(elemento.nome, elemento.email, elemento.id))
         })
     }
-    catch(erro){
+    catch(error){
         console.log(erro)
         window.location.href = "../telas/erro.html"
     }
