@@ -13,7 +13,7 @@ formulario.addEventListener("submit", async(evento)=>{
         window.location.href = '../telas/cadastro_concluido.html' //window - tela inteira, location - onde vc está, href - para onde vai enviar
     }
     catch(error){
-        console.log(erro)
+        console.log(error)
         window.location.href = "../telas/erro.html"
     }
 })
