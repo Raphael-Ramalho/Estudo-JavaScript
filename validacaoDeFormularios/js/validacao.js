@@ -1,13 +1,13 @@
 export function valida(input){
     const tipoDeInput = input.dataset.tipo
-
     if(validadores[tipoDeInput]){
         validadores[tipoDeInput](input)
     }
 }
 
 const validadores = {
-    dataNascimento:(input) => validaDataNascimento(input)
+    dataNascimento:(input) => validaDataNascimento(input),
+    teste: (input) =>{console.log(input)}
 }
 
 function validaDataNascimento(input){
