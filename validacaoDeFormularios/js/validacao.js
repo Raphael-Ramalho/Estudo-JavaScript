@@ -6,8 +6,8 @@ export function valida(input){
     }
 }
 
-const validadores ={
-    dataNascimento:input => validaDataNascimento(input)
+const validadores = {
+    dataNascimento: (input) => validaDataNascimento(input)
 }
 
 function validaDataNascimento(input){
