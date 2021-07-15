@@ -3,6 +3,12 @@ export function valida(input){
     if(validadores[tipoDeInput]){
         validadores[tipoDeInput](input)
     }
+
+    if(input.validity.valid){//validity é um objeto referente ao input e valid é uma de suas propriedades que pode conter um valor false em caso de erro e true se for valido.
+        input.parentElement.classList.remove("input-container--invalido")//remove a classe especificada
+    } else {
+        input.parentElement.classList.add("input-container--invalido")//adiciona a classe especificada
+    }
 }
 
 const validadores = {
