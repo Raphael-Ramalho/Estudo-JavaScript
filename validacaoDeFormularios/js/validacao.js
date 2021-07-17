@@ -34,7 +34,7 @@ const mensagemDeErro = {//as propriiedades listadas são referentes aos erros pr
     },
     dataNascimento:{
         valueMissing: "O campo data de nascimento não pode estar vazio.",
-        customError: "Você deve ser maior do que 18 anos para se cadastrar."//O html nao possui um erro específico para idade menor de 18 no html, por isso foi utilizado o customError
+        customError: "Você deve ser maior do que 18 anos para se cadastrar."//O html nao possui um erro específico para idade menor de 18 no html, por isso foi utilizado o customError.
     }
 }
 
