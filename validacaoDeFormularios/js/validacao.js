@@ -26,7 +26,7 @@ const mensagemDeErro = {//as propriiedades listadas são referentes aos erros pr
     },
     email:{
         valueMissing: "O campo email não pode estar vazio.",
-        typeMismatch: "O email digitado não é valido."
+        patternMismatch: "O email digitado não é valido."
     },
     senha:{
         valueMissing: "O campo senha não pode estar vazio.",
@@ -39,7 +39,7 @@ const mensagemDeErro = {//as propriiedades listadas são referentes aos erros pr
 }
 
 const validadores = {
-    dataNascimento:(input) => validaDataNascimento(input)
+    dataNascimento: (input) => validaDataNascimento(input) //arrow function
 }
 
 function mostraMensagemDeErro(tipoDeInput, input) {
