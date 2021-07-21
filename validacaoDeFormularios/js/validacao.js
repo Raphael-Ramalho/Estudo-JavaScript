@@ -35,11 +35,16 @@ const mensagemDeErro = {//as propriiedades listadas são referentes aos erros pr
     dataNascimento:{
         valueMissing: "O campo data de nascimento não pode estar vazio.",
         customError: "Você deve ser maior do que 18 anos para se cadastrar."//O html nao possui um erro específico para idade menor de 18 no html, por isso foi utilizado o customError.
+    },
+    cpf: {
+        valueMissing: "O campo de CPF não pode estar vazio.",
+        customError: "O CPF digitado não é valido."
     }
 }
 
 const validadores = {
-    dataNascimento: (input) => validaDataNascimento(input) //arrow function
+    dataNascimento: (input) => validaDataNascimento(input), //arrow function
+    cpf: (input) => validaCPF(input)
 }
 
 function mostraMensagemDeErro(tipoDeInput, input) {
@@ -70,3 +75,42 @@ function maiorQue18(data){
 
     return dataMais18 <= dataAtual  
 }
+
+//função para substituir tudo o q não for numero do cpf. Para isso, foi utilizado o metodo replace com uma regex
+function validaCPF(input) {
+    const cpfFormatado = input.value.replace(/\D/g, '') //a regex e o metodo replace estão capturando tudo o que não é digito e substituindo por uma string vazia
+    let mensagem = ""
+
+    if(!chegaCPFRepetidos(cpfFormatado)){
+        mensagem = "O CPF digitado não é valido."
+    }
+
+    input.setCustomValidity(mensagem)
+}
+
+//função para chegar se o cpf possui numeros repetidos
+function chegaCPFRepetidos(cpf){
+    const valoresRepetidos = [
+        "00000000000",
+        "11111111111",
+        "22222222222",
+        "33333333333",
+        "44444444444",
+        "55555555555",
+        "66666666666",
+        "77777777777",
+        "88888888888",
+        "99999999999"
+    ]
+    let cpfValido = true
+
+    valoresRepetidos.forEach(valor => {
+        if(valor == cpf){
+            cpfValido = false
+        }
+    })
+
+    return cpfValido
+}
+
+//verificação de validade de cpf por calculos matematicos.
