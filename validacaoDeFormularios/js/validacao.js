@@ -160,12 +160,12 @@ function confirmaDigito(soma){
 
 function recuperarCEP(input){
     const cep = input.value.replace(/\D/g, "")
-    const url = `https://viacep.com.br/ws${cep}/json/`
+    const url = `https://viacep.com.br/ws/${cep}/json/`
     const options = {
-        method: "GET",
-        mode: "cors",//modo da requisição. importante como cors quando se trata de uma requisição entre api's
+        method: 'GET',
+        mode: 'cors',//modo da requisição. importante como cors quando se trata de uma requisição entre api's
         headers: {
-            "content-type": "application/json;charset=utf-8",
+            'content-type': 'application/json;charset=utf-8'
         }
     }
 
@@ -174,7 +174,9 @@ function recuperarCEP(input){
             response => response.json()
         ).then(
             data => {
-                console.log(data)
+                if(data.erro) {//quando uma requisição invalida é enviada para a api via cep, ela retorna a propriedade erro: true
+                    input.setCustomValidity("Não foi possível buscar o CEP")
+                }
             }
         )
     }
