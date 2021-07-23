@@ -53,6 +53,9 @@ const mensagemDeErro = {//as propriiedades listadas são referentes aos erros pr
     },
     estado: {
         valueMissing: "O campo de estado não pode estar vazio"
+    },
+    preco: {
+        valueMissing: "O campo de preço não pode estar vazio"
     }
 }
 
@@ -199,3 +202,4 @@ function preencheCamposComCEP(data) {
 
 
 
+//a mascara guia o usuário no preenchimento do campo de preço. ele faz uma formatação desse campo, forçando o usuário a preencher de uma forma esperada
