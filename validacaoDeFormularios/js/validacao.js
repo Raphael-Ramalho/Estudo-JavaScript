@@ -163,9 +163,9 @@ function recuperarCEP(input){
     const cep = input.value.replace(/\D/g, "")
     const url = `https://viacep.com.br/ws/${cep}/json/`
     const options = {
-        method: 'GET',
-        mode: 'cors',//modo da requisição. importante como cors quando se trata de uma requisição entre api's
-        headers: {
+        method: 'GET',//tipo de requsição que será feita
+        mode: 'cors',//modo da requisição. o mode cors indica que a comunicação será feita entre aplicações diferentes. o mode é opcional, mas necessário quando houver comunicação entre aplicações diferentes
+        headers: {//diz como que queremos receber as informações da api
             'content-type': 'application/json;charset=utf-8'
         }
     }
@@ -180,7 +180,22 @@ function recuperarCEP(input){
                     return
                 }
                 input.setCustomValidity("")
+                preencheCamposComCEP(data)
+                return
             }
         )
     }
 }
+
+function preencheCamposComCEP(data) {
+    const logradouro = document.querySelector("[data-tipo='logradouro']")
+    const cidade = document.querySelector("[data-tipo='cidade']")
+    const estado = document.querySelector("[data-tipo='estado']")
+
+    logradouro.value = data.logradouro
+    cidade.value = data.localidade//localidade, uf e logradouro são respostas da api
+    estado.value = data.uf
+}
+
+
+
