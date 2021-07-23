@@ -67,7 +67,6 @@ const validadores = {
 function mostraMensagemDeErro(tipoDeInput, input) {
     let mensagem = ""
     tiposDeErro.forEach(erro => {
-        console.log(input.validity[erro])
         if(input.validity[erro]) {//verifica se existe algum erro true dentro do input.validity
             mensagem = mensagemDeErro[tipoDeInput][erro]
         }
