@@ -42,7 +42,8 @@ const mensagemDeErro = {//as propriiedades listadas são referentes aos erros pr
     },
     cep: {
         valueMissing: "O campo de CEP não pode estar vazio.",
-        patternMismatch: "O CEP digitado não é válido."
+        patternMismatch: "O CEP digitado não é válido.",
+        customError: "Não foi possível buscar o CEP"
     },
     logradouro: {
         valueMissing: "O campo de logradouro não pode estar vazio"
@@ -176,7 +177,9 @@ function recuperarCEP(input){
             data => {
                 if(data.erro) {//quando uma requisição invalida é enviada para a api via cep, ela retorna a propriedade erro: true
                     input.setCustomValidity("Não foi possível buscar o CEP")
+                    return
                 }
+                input.setCustomValidity("")
             }
         )
     }
