@@ -16,7 +16,6 @@ inputs.forEach(input => {
     }
 
     input.addEventListener("blur", (evento)=>{
-        console.log(evento.target)
         valida(evento.target)
     })
 })

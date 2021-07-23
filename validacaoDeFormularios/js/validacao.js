@@ -3,7 +3,6 @@ export function valida(input){
     if(validadores[tipoDeInput]){
         validadores[tipoDeInput](input)
     }
-    console.log(input.validity)
     if(input.validity.valid){//validity é um objeto referente ao input e valid é uma de suas propriedades que pode conter um valor false em caso de erro e true se for valido.
         input.parentElement.classList.remove("input-container--invalido")//remove a classe especificada
         input.parentElement.querySelector(".input-mensagem-erro").innerHTML = ""
@@ -68,6 +67,7 @@ const validadores = {
 function mostraMensagemDeErro(tipoDeInput, input) {
     let mensagem = ""
     tiposDeErro.forEach(erro => {
+        console.log(input.validity[erro])
         if(input.validity[erro]) {//verifica se existe algum erro true dentro do input.validity
             mensagem = mensagemDeErro[tipoDeInput][erro]
         }
@@ -99,15 +99,15 @@ function validaCPF(input) {
     const cpfFormatado = input.value.replace(/\D/g, '') //a regex e o metodo replace estão capturando tudo o que não é digito e substituindo por uma string vazia
     let mensagem = ""
 
-    if(!chegaCPFRepetidos(cpfFormatado) || !checaEstruturaCPF(cpfFormatado)){
-        mensagem = "O CPF digitado não é valido."
+    if(!checaCPFRepetidos(cpfFormatado) || !checaEstruturaCPF(cpfFormatado)){
+        mensagem = "Não foi possível buscar o CEP."
     }
 
     input.setCustomValidity(mensagem)
 }
 
 //função para chegar se o cpf possui numeros repetidos
-function chegaCPFRepetidos(cpf){
+function checaCPFRepetidos(cpf){
     const valoresRepetidos = [
         "00000000000",
         "11111111111",
