@@ -176,13 +176,13 @@ function recuperarCEP(input){
         fetch(url, options).then(
             response => response.json()
         ).then(
-            data => {
-                if(data.erro) {//quando uma requisição invalida é enviada para a api via cep, ela retorna a propriedade erro: true
+            response => {
+                if(response.erro) {//quando uma requisição invalida é enviada para a api via cep, ela retorna a propriedade erro: true
                     input.setCustomValidity("Não foi possível buscar o CEP")
                     return
                 }
                 input.setCustomValidity("")
-                preencheCamposComCEP(data)
+                preencheCamposComCEP(response)
                 return
             }
         )
