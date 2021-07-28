@@ -12,7 +12,7 @@ const characters = [
         mass: '136',
         eye_color: 'yellow',
         gender: 'male',
-    },
+    }, 
     {
         name: 'Leia Organa',
         height: '150',
