@@ -66,3 +66,19 @@ const characters = [
     //Get array of all first names
     const fisrtNames = characters.map(character => character.name.split(" ")[0]) //o split vai quebrar a string original em duas ao atingir o primeiro espaço, enquanto o [0] vai selecionar a primeira string criada
     console.log(fisrtNames)
+
+
+//Some - determine if at least one array item meet a condition and return true or false based on the analisys
+
+    //is at least one male caracter?
+    const maleCharacter = characters.some(character => character.gender === "male")
+    console.log(maleCharacter)
+    //is there at least one character with blue eyes?
+    const oneBlueEyes = characters.some(character => character.eye_color === "blue")
+    console.log(oneBlueEyes)
+    //is there at least one  character taller than 210?
+    const oneTallerThan210 = characters.some(character => character.height > 210)
+    console.log(oneTallerThan210)
+    //is there at least one character with mass lower than 50?
+    const oneMassLessThan50 = characters.some(character => character.mass < 50)
+    console.log(oneMassLessThan50)
