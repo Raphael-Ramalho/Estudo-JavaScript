@@ -82,3 +82,5 @@ const characters = [
     //is there at least one character with mass lower than 50?
     const oneMassLessThan50 = characters.some(character => character.mass < 50)
     console.log(oneMassLessThan50)
+
+//Sort - 
