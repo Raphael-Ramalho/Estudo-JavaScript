@@ -138,4 +138,18 @@ const characters = [
     const totalNameCharacters = characters.reduce((acc, cur) => acc + cur.name.length, 0)
     console.log(totalNameCharacters)
 
-    //every - 
+    //every - used to see if every item in the array meets a certain criteria. is results in a true or false response
+        //Does every character have blue eyes?
+        const allBlueEyes = characters.every((character) => {
+            return character.eye_color === "blue"
+        })
+        console.log(allBlueEyes)// -> false
+        //Does every characters have mass higher than 40?
+        const allMassMoreThan40 = characters.every(character => character.mass > 40)
+        console.log(allMassMoreThan40)// -> true
+        //Is every character shorter than 200?
+        const allShorterThan200 = characters.every(character => character.height < 200)
+        console.log(allShorterThan200)// -> false
+        //Is ever character male?
+        const allMale = characters.every(character => character.gender === "male")
+        console.log(allMale)// -> false
