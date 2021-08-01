@@ -107,3 +107,11 @@ const characters = [
     console.log("raphael" > "isabela") //-> true
     console.log("raphael" < "isabela") //-> false
     console.log("a" < "bb") //-> true
+    //sort by gender
+    const byGender = characters.sort((a,b) => {
+        if(a.gender ==="female"){
+            return -1
+        } else {return 1}//as on byName, here we are using a alternative way to reach our goal with the tools on our disposal. on this case, female characters will appear fist than male ones on the array
+    })
+
+//Reduce -  
