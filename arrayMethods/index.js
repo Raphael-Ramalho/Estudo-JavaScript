@@ -90,4 +90,20 @@ const characters = [
     //if the result is 0, no changes are done with the sort order of the two values
 
     //sort by mass
-    const byMass = characters.sort()
+    const byMass = characters.sort((a, b) => {
+        return a.mass - b.mass //if the order resulted is the oposite of what you wanted, change A and B order (b.mass - a.mass)
+    })
+    console.log(byMass)
+    //sort by height
+    const byHeight = characters.sort((a, b) => a.height - b.height)
+    console.log(byHeight)
+    //sort by name
+    const byName = characters.sort((a, b) => {
+        if (a.name < b.name){//we cant use only subtraction as in the previous exemples because we are dealing with strings, but javascript is able to understand if A comes first or after B on the alphabet.
+            return -1
+        } else { return 1}//by using this format we are forcing the function to organize the elements based on their alphabetical order
+    })
+
+    console.log("raphael" > "isabela") //-> true
+    console.log("raphael" < "isabela") //-> false
+    console.log("a" < "bb") //-> true
