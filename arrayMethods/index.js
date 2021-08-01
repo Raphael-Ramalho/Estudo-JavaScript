@@ -84,10 +84,10 @@ const characters = [
     console.log(oneMassLessThan50)
 
 //Sort - let us order the array in some way by a compare function
-//function (A, B){return A - B}
-    //if the result is negative, A is sorted before B
-    //if the result is positive, B is sorted before A
-    //if the result is 0, no changes are done with the sort order of the two values
+    //function (A, B){return A - B}
+        //if the result is negative, A is sorted before B
+        //if the result is positive, B is sorted before A
+        //if the result is 0, no changes are done with the sort order of the two values
 
     //sort by mass
     const byMass = characters.sort((a, b) => {
@@ -114,4 +114,28 @@ const characters = [
         } else {return 1}//as on byName, here we are using a alternative way to reach our goal with the tools on our disposal. on this case, female characters will appear fist than male ones on the array
     })
 
-//Reduce -  
+//Reduce -  you iterate through each array's item in order to get some ending result. it is made by adding a acumulator pattern (acc) and a current value(cur) as fuction parameters.
+    //get total mass of all characters
+    const totalMass = characters.reduce((acc, cur) => {
+        return acc + cur.mass
+    }, 0)// 0 is the initial acumulator value
+    console.log(totalMass)
+    //get total height of all characters
+    const totalHeight = characters.reduce((acc, cur) => acc + cur.height, 0)
+    console.log(totalHeight)
+    //get total number of characters by eye color
+    const charactersByEyeColor = characters.reduce((acc, cur) => {
+        const color = cur.eye_color
+        if(acc[color]){
+            acc[color]++
+        } else {
+            acc[color] = 1
+        }
+        return acc
+    }, {})
+    console.log(charactersByEyeColor)// result -> {blue: 2, yellow: 1, brown: 1}
+    //get total number of characters(letters + spaces) in all the character names
+    const totalNameCharacters = characters.reduce((acc, cur) => acc + cur.name.length, 0)
+    console.log(totalNameCharacters)
+
+    //every - 
