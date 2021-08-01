@@ -87,7 +87,7 @@ const characters = [
 //function (A, B){return A - B}
     //if the result is negative, A is sorted before B
     //if the result is positive, B is sorted before A
-    //if the result is 0, no changes are done with the sort order
+    //if the result is 0, no changes are done with the sort order of the two values
 
     //sort by mass
     const byMass = characters.sort()
