@@ -114,7 +114,7 @@ const characters = [
         } else {return 1}//as on byName, here we are using a alternative way to reach our goal with the tools on our disposal. on this case, female characters will appear fist than male ones on the array
     })
 
-//Reduce -  you iterate through each array's item in order to get some ending result. it is made by adding a acumulator pattern (acc) and a current value(cur) as fuction parameters.
+//Reduce -  you iterate through each array's item in order to get some ending result. it is made by adding a acumulator pattern (acc) and a current value(cur) as function parameters.
     //get total mass of all characters
     const totalMass = characters.reduce((acc, cur) => {
         return acc + cur.mass
@@ -138,7 +138,7 @@ const characters = [
     const totalNameCharacters = characters.reduce((acc, cur) => acc + cur.name.length, 0)
     console.log(totalNameCharacters)
 
-    //every - used to see if every item in the array meets a certain criteria. is results in a true or false response
+    //every - used to see if every item in the array meets a certain criteria. results in true or false 
         //Does every character have blue eyes?
         const allBlueEyes = characters.every((character) => {
             return character.eye_color === "blue"
