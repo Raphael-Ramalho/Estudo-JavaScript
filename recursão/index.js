@@ -1,13 +1,15 @@
 // ARRAY DE NUMEROS DECRESCENTES
 
-const contarDecrescente = (n) => {
-  let resultado = [];
-
-  if (n < 1) {
-    return;
+// contarDecrescente(4) -> [4,3,2,1]
+const contarDecrescente = (n, resultado = [n]) => {
+  
+  if (n <= 1) {
+    return resultado;
   }
 
-  return [...resultado, contarDecrescente(n - 1)];
+  const resp = [...resultado, n - 1];
+
+  return contarDecrescente(n - 1, resp);
 };
 
 console.log("arrayDecrescente:", contarDecrescente(4));
